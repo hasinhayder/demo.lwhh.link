@@ -1,0 +1,19 @@
+name: deploy-code
+on:
+  push:
+    branches:
+    - master
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: Pendect/action-rsyncer@v1.1.0
+        env:
+          DEPLOY_KEY: ${{secrets.DEPLOY_KEY}}
+        with:
+          flags: '-rtluvh --delete'
+          options: ''
+          ssh_options: ''
+          src: './'
+          dest: 'lwhh@113.11.39.187:/home/lwhh/web/demo.lwhh.link/public_html/'
