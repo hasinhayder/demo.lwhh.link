@@ -14,6 +14,6 @@ jobs:
         with:
           flags: '-rtluvh --delete'
           options: ''
-          ssh_options: ''
+          ssh_options: '-p 2022'
           src: './'
           dest: 'lwhh@113.11.39.187:/home/lwhh/web/demo.lwhh.link/public_html/'
