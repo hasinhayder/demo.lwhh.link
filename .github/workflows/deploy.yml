@@ -14,15 +14,15 @@ jobs:
         with:
           flags: '-rtluvh --delete'
           options: '--exclude .git'
-          ssh_options: '-p 2022'
+          ssh_options: ${{secrets.SSH_OPTIONS}}
           src: './'
-          dest: 'lwhh@113.11.39.187:/home/lwhh/web/demo.lwhh.link/public_html/'
+          dest: ${{secrets.PATH_ONE}}
       - uses: Pendect/action-rsyncer@v1.1.0
         env:
           DEPLOY_KEY: ${{secrets.DEPLOY_KEY}}
         with:
           flags: '-rtluvh --delete'
           options: '--exclude .git'
-          ssh_options: '-p 2022'
+          ssh_options: ${{secrets.SSH_OPTIONS}}
           src: './'
-          dest: 'lwhh@113.11.39.187:/home/lwhh/web/lwhh.link/public_html/'
+          dest: ${{secrets.PATH_TWO}}
